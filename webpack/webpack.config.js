@@ -11,7 +11,6 @@ const PATHS = {
 const config = {
   entry: [PATHS.js + "/index.js"],
   externals: {
-    cheerio: "window",
     react: {
       root: "React",
       commonjs2: "react",
@@ -35,7 +34,7 @@ const config = {
   },
   plugins: [new webpack.optimize.UglifyJsPlugin()],
   resolve: {
-    extensions: [".js", ".json", ".css", ".scss"]
+    extensions: [".js", ".json", ".css"]
   },
   module: {
     rules: [
@@ -47,20 +46,6 @@ const config = {
           }
         ],
         include: [PATHS.js]
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
-          }
-        ]
       }
     ]
   }
